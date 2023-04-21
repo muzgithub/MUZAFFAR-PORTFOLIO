@@ -1,0 +1,608 @@
+@media only screen and (min-width: 1024px) {
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .header {
+        background-color: #ffffff;
+        display: flex;
+        width: 100%;
+        height: 15vh;
+        float: left;
+    }
+
+    .header .fixedwidthheader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 1000px;
+        margin: auto;
+    }
+
+    .header .fixedwidthheader .leftheader {
+        width: 50%;
+    }
+
+    .header .fixedwidthheader .rightheader {
+        width: 50%;
+    }
+
+    .header .fixedwidthheader .leftheader img {
+        width: 18%;
+    }
+
+
+
+    .header .fixedwidthheader .rightheader .fullmenu li {
+        display: inline;
+        padding: 0px 20px;
+    }
+
+    .header .fixedwidthheader .rightheader .fullmenu li a {
+        color: #000000;
+        text-decoration: none;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 27px;
+    }
+
+    .header .fixedwidthheader .rightheader .fullmenu li a:hover {
+        color: #FFB742;
+    }
+
+    .parentclass {
+        width: 100%;
+        float: left;
+    }
+
+    .bannersection {
+        background-color: #ffffff;
+        min-height: 85vh;
+        display: flex;
+        width: 100%;
+        float: left;
+    }
+
+    .bannersection .bannerss {
+        margin: auto;
+        text-align: center;
+        width: 1000px;
+    }
+
+    .bannersection .bannerss h6 {
+        font-family: 'Inter';
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 51px;
+    }
+
+    .bannersection .bannerss h6 span {
+        color: #FFB742;
+        text-decoration: underline;
+    }
+
+    .bannersection .bannerss h1 {
+        font-family: 'Inter';
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 90px;
+    }
+
+    .bannersection .bannerss p {
+        font-family: 'Inter';
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 40px;
+    }
+
+    .bannersection .bannerss img {
+        width: 18%;
+    }
+
+
+    .counter {
+        width: 100%;
+        float: left;
+        padding: 50px 0px 50px 0px;
+    }
+
+    .counter .numbercounters {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 1000px;
+        margin: auto;
+    }
+
+    .counter .numbercounters .numbercounter {
+        background-color: #FFB742;
+        width: 100%;
+        margin: 10px;
+        display: flex;
+        border-radius: 10px;
+        padding: 15px 30px 15px 15px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .counter .numbercounters .numbercounter .counterimage {
+        width: 30%;
+    }
+
+    .counter .numbercounters .numbercounter .countercontent {
+        width: 70%;
+        font-family: 'Inter';
+        font-weight: 700;
+        font-size: 16px;
+
+    }
+
+    .counter .numbercounters .numbercounter .countercontent h3 {
+        line-height: 40px;
+        color: #ffffff;
+    }
+
+    .aboutussection {
+        width: 100%;
+        float: left;
+    }
+
+    .aboutussection .aboutus {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1000px;
+        margin: auto;
+        min-height: 100vh;
+    }
+
+    .aboutussection .aboutus .aboutusimage {
+        width: 50%;
+    }
+
+    .aboutussection .aboutus .aboutuscontent {
+        width: 50%;
+    }
+
+    .aboutussection .aboutus .aboutusimage img {
+        width: 100%;
+    }
+
+    .aboutussection .aboutus .aboutuscontent h6 {
+        font-family: 'Poppins';
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 30px;
+        color: #FFB742;
+    }
+
+    .aboutussection .aboutus .aboutuscontent h1 {
+        font-family: 'Roboto';
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 70px;
+    }
+
+    .aboutussection .aboutus .aboutuscontent p {
+        font-family: 'Poppins';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 30px;
+        padding: 20px 20px 20px 0px;
+    }
+
+    .aboutussection .aboutus .aboutuscontent button {
+        background-color: #FFB742;
+        padding: 10px 26px 10px 26px;
+        font-family: 'Poppins';
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 30px;
+        color: #ffffff;
+        border: none;
+        border-radius: 50px;
+    }
+
+    .skillssection {
+        width: 100%;
+        float: left;
+    }
+
+    .skillssection .skill {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .skillssection .skilltitle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1000px;
+        margin: auto;
+    }
+
+    .skillssection .skilltitle h6 {
+        font-family: 'Poppins';
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 30px;
+        color: #FFB742;
+    }
+
+
+    .skillssection .skills {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1000px;
+        margin: auto;
+        padding: 50px 0px;
+    }
+
+    .skillssection .skills .skillcontent {
+        width: 50%;
+    }
+
+
+
+    .skillssection .skills .skillcontent h1 {
+        font-family: 'Roboto';
+        font-weight: 700;
+        font-size: 38px;
+        line-height: 50px;
+        padding: 0px 50px 0px 0px;
+    }
+
+    .skillssection .skills .skillcontent p {
+        font-family: 'Poppins';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 30px;
+        padding: 20px 20px 20px 0px;
+    }
+
+    .skillssection .skills .skillcontent button {
+        background-color: #FFB742;
+        padding: 10px 26px 10px 26px;
+        font-family: 'Poppins';
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 30px;
+        color: #ffffff;
+        border: none;
+        border-radius: 50px;
+    }
+
+    .skillssection .skills .skillimage {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 50px;
+        justify-content: center;
+        width: 50%;
+    }
+
+    .skillssection .skills .skillimage div {
+        background-color: #EEEEEE;
+        margin: 10px;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+
+    .worksection {
+        width: 100%;
+        float: left;
+    }
+
+    .worksection .work .worktitle {
+        width: 1000px;
+        margin: auto;
+    }
+
+    .worksection .work .worktitle h6 {
+        font-family: 'Poppins';
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 30px;
+        color: #FFB742;
+        text-align: center;
+    }
+
+    .worksection .work .worktitle h1 {
+        font-family: 'Roboto';
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 70px;
+        text-align: center;
+    }
+
+
+
+
+    .portfolio-section {
+        width: 100%;
+        float: left;
+    }
+
+    .portfolio-section .container {
+        width: 1000px;
+        margin: auto;
+        padding: 50px 0px;
+    }
+
+
+    .portfolio-section .template-btn {
+        color: white;
+        text-transform: uppercase;
+        font-weight: 500;
+        padding: 12px 20px;
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        -webkit-transition: 0.2s;
+        -moz-transition: 0.2s;
+        -o-transition: 0.2s;
+        transition: 0.2s;
+    }
+
+    .portfolio-section .template-btn:hover {
+        color: white;
+        background: #f28500;
+    }
+
+    .portfolio-section .portfolio-section {
+        padding-top: 30px;
+        transition: 1.3s;
+        box-sizing: border-box;
+        height: auto;
+    }
+
+    .portfolio-section .portfolio-tab ul {
+        text-align: center;
+    }
+
+    .portfolio-section .portfolio-tab ul li {
+        font-family: 'Poppins';
+        font-size: 16px;
+        color: #000;
+        background: transparent;
+        display: inline-block;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 12px 16px;
+        /* border: 2px solid #FFB742; */
+        margin: 0 5px;
+        cursor: pointer;
+        -webkit-transition: 0.2s;
+        -moz-transition: 0.2s;
+        -o-transition: 0.2s;
+        transition: 0.2s;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+
+
+    .portfolio-section .portfolio-tab ul li:hover {
+        background: #FFB742;
+        color: #fff
+    }
+
+    .portfolio-section .portfolio-tab ul .active {
+        background: #FFB742;
+        color: #fff
+    }
+
+    .portfolio-section .clearfix:after {
+        display: table;
+        content: " ";
+        clear: both;
+    }
+
+    .portfolio-section .portfolio-grid {
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 400px;
+    }
+
+
+    .portfolio-section .portfolio-grid .portfolio {
+        box-sizing: border-box;
+        display: none;
+        overflow: hidden;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 10px;
+        margin: 10px;
+    }
+
+    .portfolio-section .portfolio-wrapper {
+        overflow: hidden;
+        position: relative !important;
+        cursor: pointer;
+    }
+
+    .portfolio-section .portfolio-bg {
+        width: 100%;
+        height: 400px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        transition: 1s;
+        transform: scale(1)
+    }
+
+    .portfolio-section .portfolio:hover .portfolio-bg {
+        transform: scale(1.2)
+    }
+
+    .portfolio-section .unubs .portfolio-bg {
+        background-image: url('/portfolio/unubs.png');
+        background-size: cover;
+        background-position-y: 0;
+    }
+
+    .portfolio-section .cosmac .portfolio-bg {
+        background-image: url('/portfolio/cosmacbizsolution.png');
+        background-size: cover;
+        background-position-y: 0;
+    }
+
+    .portfolio-section .tronlogix .portfolio-bg {
+        background-image: url('/portfolio/tronlogix.png');
+        background-size: cover;
+        background-position-y: 0;
+    }
+
+    .portfolio-section .zydni .portfolio-bg {
+        background-image: url('/portfolio/zydni.png');
+        background-size: cover;
+        background-position-y: 0;
+    }
+
+    .portfolio-section .colan .portfolio-bg {
+        background-image: url('/portfolio/colaninfotech.png');
+        background-size: cover;
+        background-position-y: 0;
+    }
+
+
+    .portfolio-section .getenergy .portfolio-bg {
+        background-image: url('/portfolio/getenergy.png');
+        background-size: cover;
+        background-position-y: 0;
+    }
+
+    .portfolio-section .spicesnc .portfolio-bg {
+        background-image: url('/portfolio/9spicesnc.png');
+        background-size: cover;
+        background-position-y: 0;
+    }
+
+    .portfolio-section .spicesny .portfolio-bg {
+        background-image: url('/portfolio/9spicesny.png');
+        background-size: cover;
+        background-position-y: 0;
+    }
+
+    .portfolio-section .persispanamacity .portfolio-bg {
+        background-image: url('/portfolio/persispanamacity.png');
+        background-size: cover;
+        background-position-y: 0;
+    }
+
+    .portfolio-section .pizzamart .portfolio-bg {
+        background-image: url('/portfolio/pizzamart.png');
+        background-size: cover;
+        background-position-y: 0;
+    }
+
+    .portfolio-section .portfolio .label {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        transition: 0.5s;
+        opacity: 0;
+        visibility: hidden
+    }
+
+    .portfolio-section .portfolio .label-bg {
+        background: #232323;
+        opacity: 0.7;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 1px;
+    }
+
+    .portfolio-section .portfolio .label-text {
+        color: #fff;
+        position: relative;
+        z-index: 500;
+        font-family: 'Poppins';
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 0px 20px;
+    }
+
+    .portfolio-section .portfolio:hover .label {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .portfolio-section .portfolio .text-category {
+        display: block;
+    }
+
+    .portfolio-section .portfolio .template-btn {
+        background: #FFB742;
+        border: 1px solid #FFB742;
+        text-decoration: none;
+        margin-top: 20px;
+        font-weight: 500
+    }
+
+    .contactsection {
+        width: 100%;
+        float: left;
+    }
+
+    .contactsection .contactus {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1000px;
+        margin: auto;
+        padding: 50px 0px;
+        background-color: #FFB742;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .contactsection .contactus .contactustitle {
+        width: 50%;
+    }
+
+    .contactsection .contactus .contactusbutton {
+        width: 50%;
+    }
+
+    .contactsection .contactus .contactustitle h1 {
+        font-family: 'Inter';
+        font-weight: 900;
+        font-size: 35px;
+        line-height: 70px;
+        text-align: center;
+    }
+
+    .contactsection .contactus .contactusbutton a {
+        padding: 10px 26px 10px 26px;
+        font-family: 'Poppins';
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 30px;
+        color: #000000;
+        border: 2px solid #000000;
+        border-radius: 50px;
+        text-decoration: none;
+    }
+
+
+
+}
