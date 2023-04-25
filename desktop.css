@@ -518,6 +518,12 @@
         background-position-y: 0;
     }
 
+    .portfolio-section .alohabridgeclub .portfolio-bg {
+        background-image: url('/portfolio/alohabridgeclub.png');
+        background-size: cover;
+        background-position-y: 0;
+    }
+
     .portfolio-section .portfolio .label {
         position: absolute;
         width: 100%;
