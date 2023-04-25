@@ -605,5 +605,12 @@
         font-size: 15px;
     } */
 
+    .contactsection .contactus .contactustitle .socialmedia .fa-linkedin-in {
+        background: #0077B5;
+        padding: 10px;
+        color: #ffff;
+        border-radius: 50px;
+    }
+
 
 }
