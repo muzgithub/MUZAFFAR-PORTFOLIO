@@ -452,6 +452,12 @@
         background-position-y: 0;
     }
 
+    .portfolio-section .mufeedsolution .portfolio-bg {
+        background-image: url('/portfolio/mufeedsolutions.png');
+        background-size: cover;
+        background-position-y: 0;
+    }
+
     .portfolio-section .portfolio .label {
         position: absolute;
         width: 100%;
