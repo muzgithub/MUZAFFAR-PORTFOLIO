@@ -598,24 +598,17 @@
         margin: 50px 0px 0px 0px;
     }
 
-    /* .contactsection .contactus .contactustitle .socialmedia i {
-        background-color: #ffffff;
-        padding: 10px;
-        border-radius: 50px;
-        font-size: 15px;
-    } */
-
     .contactsection .contactus .contactustitle .socialmedia i {
         padding: 10px;
         color: #000000;
         border-radius: 50px;
         border: 2px solid #000000;
+        width: 15px;
     }
 
     .contactsection .contactus .contactustitle .socialmedia i:hover {
         color: #ffb742;
         background: #000;
-
     }
 
 
