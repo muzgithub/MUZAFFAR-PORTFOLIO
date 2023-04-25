@@ -544,20 +544,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         width: 100%;
         margin: auto;
         padding: 50px 0px;
         background-color: #FFB742;
         border-radius: 10px;
         text-align: center;
-    }
-
-    .contactsection .contactus .contactustitle {
-        width: 50%;
-    }
-
-    .contactsection .contactus .contactusbutton {
-        width: 50%;
     }
 
     .contactsection .contactus .contactustitle h1 {
@@ -568,7 +561,7 @@
         text-align: center;
     }
 
-    .contactsection .contactus .contactusbutton a {
+    .contactsection .contactus .contactustitle a {
         padding: 10px 26px 10px 26px;
         font-family: 'Poppins';
         font-weight: 700;
