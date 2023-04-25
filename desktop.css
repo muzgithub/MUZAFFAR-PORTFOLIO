@@ -605,11 +605,17 @@
         font-size: 15px;
     } */
 
-    .contactsection .contactus .contactustitle .socialmedia .fa-linkedin-in {
-        background: #0077B5;
+    .contactsection .contactus .contactustitle .socialmedia i {
         padding: 10px;
-        color: #ffff;
+        color: #000000;
         border-radius: 50px;
+        border: 2px solid #000000;
+    }
+
+    .contactsection .contactus .contactustitle .socialmedia i:hover {
+        color: #ffb742;
+        background: #000;
+
     }
 
 
