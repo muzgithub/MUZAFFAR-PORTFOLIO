@@ -536,6 +536,12 @@
         background-position-y: 0;
     }
 
+    .portfolio-section .bigdata .portfolio-bg {
+        background-image: url('/portfolio/bigdatadots.png');
+        background-size: cover;
+        background-position-y: 0;
+    }
+
     .portfolio-section .portfolio .label {
         position: absolute;
         width: 100%;
