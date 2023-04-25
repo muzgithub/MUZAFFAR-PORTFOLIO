@@ -604,6 +604,7 @@
         border-radius: 50px;
         border: 2px solid #000000;
         width: 15px;
+        margin: 5px;
     }
 
     .contactsection .contactus .contactustitle .socialmedia i:hover {
