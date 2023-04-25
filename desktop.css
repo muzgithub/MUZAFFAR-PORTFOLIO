@@ -573,7 +573,7 @@
     }
 
 
-    .contactsection .contactus .contactustitle h1 {
+    .contactsection .contactus .contactustitle .content h1 {
         font-family: 'Inter';
         font-weight: 900;
         font-size: 35px;
@@ -582,7 +582,7 @@
         margin: 0px 0px 20px 0px;
     }
 
-    .contactsection .contactus .contactustitle a {
+    .contactsection .contactus .contactustitle .content a {
         padding: 10px 26px 10px 26px;
         font-family: 'Poppins';
         font-weight: 700;
