@@ -14,31 +14,35 @@
 </head>
 
 <body>
-    <header>
-        <div class="header">
-            <div class="fixedwidthheader">
-                <div class="leftheader">
-                    <img src="image/My Logo.png">
-                </div>
-                <div class="rightheader">
-                    <ul class="fullmenu">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+
+    <div class="parentclass">
+        <header>
+            <div class="header">
+                <div class="fixedwidthheader">
+                    <div class="leftheader">
+                        <img src="image/My Logo.png">
+                    </div>
+                    <div class="rightheader">
+                        <ul class="fullmenu">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
-    <div class="parentclass">
+        </header>
         <section class="bannersection" id="home">
             <div class="bannerss">
-                <h6>Hi, I Am <span>Muzaffar Ahmed</span>👋</h6>
+                <h6>Hi, I Am <span>Muzaffar Ahmed</span><span class="hand">👋</span></h6>
                 <h1>Full Stack Web Developer</h1>
-                <p> I specialize in creating dynamic and interactive websites using essential web development tools like
-                    HTML, CSS, JavaScript, PHP, MySQL, WordPress and Magento.</p>
+                <p class="bannerhover"> I specialize in creating dynamic and interactive websites using essential web
+                    development tools like
+                    <span>HTML</span>, <span>CSS</span>, <span>JavaScript</span>, <span>PHP</span>, <span>MySQL</span>,
+                    <span>WordPress</span> and <span>Magento</span>.
+                </p>
                 <img src="image/Group.png">
             </div>
         </section>
@@ -124,18 +128,19 @@
             </div>
         </section>
 
-        <section class="worksection" id="portfolio">
-            <div class="work">
-                <div class="worktitle">
-                    <h6>MY WORKS</h6>
-                    <h1>Featured Works</h1>
-                </div>
 
-            </div>
-        </section>
 
 
         <section class="portfolio-section">
+            <div class="worksection" id="portfolio">
+                <div class="work">
+                    <div class="worktitle">
+                        <h6>MY WORKS</h6>
+                        <h1>Featured Works</h1>
+                    </div>
+
+                </div>
+            </div>
             <div class="container">
                 <span class="hr-role"></span>
                 <div class="portfolio-tab">
@@ -386,29 +391,30 @@
                 </div>
             </div>
         </section>
+        <footer>
+            <section class="contactsection" id="contact">
+                <div class="contactus">
+                    <div class="contactustitle">
+                        <div class="content">
+                            <h1>Get a project in mind?</h1>
+                            <a href="mailto:muzafarahmed840@gmail.com">Let's connect</a>
+                        </div>
+                        <div class="socialmedia">
+                            <a href="https://www.linkedin.com/in/muzaffar-ahmed-007909269" target="_blank"><i
+                                    class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://instagram.com/muzafarahmed.g?igshid=ZDdkNTZiNTM=" target="_blank"><i
+                                    class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/muzaffar.ahmed.5661?mibextid=ZbWKwL" target="_blank"><i
+                                    class="fa-brands fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
     </div>
 
 
-    <footer>
-        <section class="contactsection" id="contact">
-            <div class="contactus">
-                <div class="contactustitle">
-                    <div class="content">
-                        <h1>Get a project in mind?</h1>
-                        <a href="mailto:muzafarahmed840@gmail.com">Let's connect</a>
-                    </div>
-                    <div class="socialmedia">
-                        <a href="https://www.linkedin.com/in/muzaffar-ahmed-007909269" target="_blank"><i
-                                class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="https://instagram.com/muzafarahmed.g?igshid=ZDdkNTZiNTM=" target="_blank"><i
-                                class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/muzaffar.ahmed.5661?mibextid=ZbWKwL" target="_blank"><i
-                                class="fa-brands fa-facebook-f"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </footer>
+
 
     <script>
         const animationDuration = 4000;

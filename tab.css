@@ -6,7 +6,8 @@
 
 
     html {
-        scroll-behavior: smooth;
+
+        cursor: url("data:image/cursor.svg version='1.1' id='Layer_1' xmlns='image/cursor.svg' xmlns:xlink='image/cursor.svg' x='0px' y='0px' width='24px' height='24px' viewBox='0 0 512 512' style='enable-background:new 0 0 512.011 512.011;' xml:space='preserve'%3E %3Cpath fill='DeepSkyBlue' d='M434.215,344.467L92.881,3.134c-4.16-4.171-10.914-4.179-15.085-0.019  c-2.011,2.006-3.139,4.731-3.134,7.571v490.667c0.003,4.382,2.685,8.316,6.763,9.92c4.081,1.603,8.727,0.545,11.712-2.667  l135.509-145.92h198.016c5.891,0.011,10.675-4.757,10.686-10.648C437.353,349.198,436.226,346.473,434.215,344.467z'/%3E %3C/svg%3E"), pointer;
     }
 
     .header {
@@ -33,6 +34,7 @@
 
 
     .parentclass {
+        scroll-behavior: smooth;
         width: 100%;
         float: left;
     }
@@ -83,6 +85,31 @@
         width: 18%;
     }
 
+    .bannersection .bannerss .hand {
+        position: absolute;
+        animation: handanime infinite 1s;
+        text-decoration: none !important;
+    }
+
+    @keyframes handanime {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        50% {
+            transform: rotate(10deg);
+        }
+
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+
+    .bannerhover:hover>span {
+        color: #FFB742;
+        text-decoration: underline;
+        font-weight: bold;
+    }
 
     .counter {
         width: 100%;
@@ -148,7 +175,35 @@
 
     .aboutussection .aboutus .aboutusimage img {
         width: 100%;
+        filter: grayscale(1);
+        animation: imganim linear 1s;
     }
+
+    @keyframes imganim {
+        0% {
+            filter: grayscale(0);
+        }
+
+        100% {
+            filter: grayscale(1);
+        }
+    }
+
+    .aboutussection .aboutus .aboutusimage img:hover {
+        animation: imganimhover linear 1s;
+        filter: grayscale(0);
+    }
+
+    @keyframes imganimhover {
+        0% {
+            filter: grayscale(1);
+        }
+
+        100% {
+            filter: grayscale(0);
+        }
+    }
+
 
     .aboutussection .aboutus .aboutuscontent h6 {
         font-family: 'Poppins';
