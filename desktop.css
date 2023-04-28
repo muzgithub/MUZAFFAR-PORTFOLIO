@@ -14,6 +14,11 @@
     }
 
     .parentclass {
+        overflow: scroll;
+        overflow-x: hidden;
+        width: 100%;
+        height: 100vh;
+        scroll-snap-type: y proximity;
         scroll-behavior: smooth;
         scrollbar-width: thin;
         scrollbar-color: #FFB742;
@@ -84,13 +89,6 @@
         color: #FFB742;
     }
 
-    .parentclass {
-        overflow: scroll;
-        overflow-x: hidden;
-        width: 100%;
-        height: 100vh;
-        scroll-snap-type: y mandatory;
-    }
 
     section {
         scroll-snap-align: center;
