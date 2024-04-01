@@ -15,13 +15,13 @@
 
     .parentclass {
         overflow: scroll;
-        overflow-x: hidden;
-        width: 100%;
-        height: 100vh;
-        scroll-snap-type: y proximity;
-        scroll-behavior: smooth;
-        scrollbar-width: thin;
-        scrollbar-color: #FFB742;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100vh;
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+    scrollbar-color: #FFB742 whitesmoke;
+    scrollbar-width: thin;
     }
 
     .parentclass::-webkit-scrollbar-track {
