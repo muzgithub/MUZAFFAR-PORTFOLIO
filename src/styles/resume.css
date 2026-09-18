@@ -1,0 +1,183 @@
+.resume-page {
+  padding-bottom: var(--space-20);
+}
+
+.resume-hero {
+  padding-block: var(--space-12) var(--space-16);
+  border-bottom: 1px solid var(--color-divider);
+  background: var(--color-bg-elevated);
+}
+
+.resume-hero__inner {
+  display: grid;
+  gap: var(--space-5);
+  justify-items: start;
+  min-width: 0;
+}
+
+.resume-hero h1 {
+  overflow-wrap: anywhere;
+}
+
+.resume-hero__title {
+  color: var(--color-text-secondary);
+  font-size: clamp(1.05rem, 1rem + 0.4vw, 1.25rem);
+  font-weight: var(--weight-medium);
+}
+
+.resume-hero__lede {
+  max-width: 42rem;
+  color: var(--color-text-secondary);
+}
+
+.resume-hero__contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-tech);
+}
+
+.resume-hero__contact a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.resume-hero__contact a:hover {
+  color: var(--color-link);
+}
+
+.resume-actions {
+  gap: var(--space-3);
+}
+
+.resume-actions .btn {
+  min-height: 2.75rem;
+}
+
+.resume-section {
+  padding-block: var(--space-12);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.resume-section--muted {
+  background: var(--color-bg-elevated);
+}
+
+.resume-prose {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 42rem;
+  margin-top: var(--space-8);
+  color: var(--color-text-secondary);
+}
+
+.resume-skills {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+.resume-skills__group {
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.resume-skills__group h3 {
+  font-size: var(--font-size-tech);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--letter-label);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.resume-experience {
+  margin-top: var(--space-8);
+}
+
+.resume-projects {
+  display: grid;
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+}
+
+.resume-project {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.resume-project:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.resume-project h3 {
+  overflow-wrap: anywhere;
+}
+
+.resume-project__tech {
+  min-width: 0;
+}
+
+.resume-project__link {
+  justify-self: start;
+}
+
+.resume-education {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-8);
+}
+
+.resume-awards {
+  margin-top: var(--space-8);
+}
+
+.resume-cta__inner {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: start;
+  max-width: 40rem;
+}
+
+.resume-cta .resume-actions {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .resume-hero {
+    padding-block: var(--space-16) var(--space-20);
+  }
+
+  .resume-skills {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-8) var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .resume-skills {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 479px) {
+  .resume-actions {
+    width: 100%;
+  }
+
+  .resume-actions .btn {
+    width: 100%;
+  }
+
+  .resume-cta .cluster {
+    width: 100%;
+  }
+}
