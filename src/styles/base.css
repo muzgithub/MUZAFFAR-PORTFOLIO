@@ -1,0 +1,141 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+html {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-height-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-heading);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-heading);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-height-snug);
+}
+
+.caption {
+  font-size: var(--font-size-caption);
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+.label {
+  font-size: var(--font-size-label);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--letter-label);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.tech-text {
+  font-size: var(--font-size-tech);
+  color: var(--color-text-secondary);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-tertiary {
+  color: var(--color-text-tertiary);
+}
+
+a {
+  color: var(--color-link);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: -3rem;
+  z-index: 100;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-surface-inverse);
+  color: var(--color-text-inverse);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

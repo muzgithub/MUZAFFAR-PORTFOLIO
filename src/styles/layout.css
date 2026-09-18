@@ -1,0 +1,119 @@
+/*
+  Breakpoints
+  375px  default / small mobile
+  480px  large mobile
+  768px  tablet
+  1024px laptop
+  1200px desktop
+  1440px+ wide
+*/
+
+.container {
+  width: min(100%, var(--container-max));
+  margin-inline: auto;
+  padding-inline: var(--container-px);
+}
+
+.container--wide {
+  width: min(100%, var(--container-wide));
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.grid--2 {
+  grid-template-columns: 1fr;
+}
+
+.grid--3 {
+  grid-template-columns: 1fr;
+}
+
+.grid--auto {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 480px) {
+  .grid--auto {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid--auto {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid--auto {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.divider {
+  height: 1px;
+  border: 0;
+  margin: 0;
+  background: var(--color-divider);
+}
+
+.dev-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: var(--header-height);
+  padding: var(--space-3) var(--container-px);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg-elevated);
+}
+
+.dev-nav a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: var(--font-size-tech);
+  font-weight: var(--weight-medium);
+}
+
+.dev-nav a:hover,
+.dev-nav a[aria-current="page"] {
+  color: var(--color-text);
+}
+
+.dev-nav__end {
+  margin-left: auto;
+}
+
+.page-placeholder {
+  padding: var(--space-16) var(--container-px);
+}
