@@ -1,4 +1,5 @@
 import { profile } from '../data/profile.js'
+import { projects } from '../data/projects.js'
 import { getProjectOverview } from './projects.js'
 
 export const SITE_URL = 'https://muzaffar.vercel.app'
@@ -10,6 +11,10 @@ export const DEFAULT_DESCRIPTION =
   'Software Engineer | Full Stack Developer with 6+ years of experience in WordPress, WooCommerce, PHP, Laravel, ReactJS, and modern web applications.'
 
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`
+
+export const PROFILE_IMAGE_URL = `${SITE_URL}/My%20Pic/My_Pic.png`
+
+export const INDEXABLE_STATIC_PATHS = ['/', '/projects', '/resume', '/contact']
 
 const MANAGED_SELECTOR = 'data-managed-seo'
 
@@ -119,8 +124,9 @@ export const PAGE_SEO = {
   },
   projects: {
     title: `Projects — ${profile.name}`,
-    description:
-      'Explore web development projects by Muzaffar Ahmed, including WordPress, WooCommerce, PHP, Laravel, ReactJS, Drupal, and selected case studies.',
+    description: truncateDescription(
+      `Browse ${projects.length} web development projects by ${profile.name}, including WordPress, WooCommerce, PHP, Laravel, ReactJS, Drupal, and MERN work.`,
+    ),
     path: '/projects',
   },
   resume: {
@@ -149,24 +155,67 @@ export const PAGE_SEO = {
   },
 }
 
+export function getIndexablePaths() {
+  return [...INDEXABLE_STATIC_PATHS, ...projects.map((project) => `/projects/${project.slug}`)]
+}
+
 export function getHomeJsonLd() {
-  return [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: profile.name,
-      jobTitle: profile.title,
-      url: toCanonicalUrl('/'),
-      sameAs: [profile.linkedin, profile.github],
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebSite',
-      name: profile.name,
-      url: toCanonicalUrl('/'),
-      description: DEFAULT_DESCRIPTION,
-    },
-  ]
+  const siteUrl = toCanonicalUrl('/')
+  const personId = `${siteUrl}#person`
+  const websiteId = `${siteUrl}#website`
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Person',
+        '@id': personId,
+        name: profile.name,
+        jobTitle: profile.title,
+        url: siteUrl,
+        email: profile.email,
+        image: PROFILE_IMAGE_URL,
+        sameAs: [profile.linkedin, profile.github],
+      },
+      {
+        '@type': 'WebSite',
+        '@id': websiteId,
+        url: siteUrl,
+        name: profile.name,
+        description: DEFAULT_DESCRIPTION,
+        inLanguage: 'en',
+        author: { '@id': personId },
+      },
+    ],
+  }
+}
+
+export function getProjectJsonLd(project) {
+  const path = `/projects/${project.slug}`
+  const pageUrl = toCanonicalUrl(path)
+  const siteUrl = toCanonicalUrl('/')
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': pageUrl,
+        url: pageUrl,
+        name: project.title,
+        description: getProjectSeoDescription(project),
+        isPartOf: { '@type': 'WebSite', '@id': `${siteUrl}#website`, url: siteUrl },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+          { '@type': 'ListItem', position: 2, name: 'Projects', item: toCanonicalUrl('/projects') },
+          { '@type': 'ListItem', position: 3, name: project.title, item: pageUrl },
+        ],
+      },
+    ],
+  }
 }
 
 export function applyPageSeo({

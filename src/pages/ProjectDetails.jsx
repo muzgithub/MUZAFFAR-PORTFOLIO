@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import ProjectCaseStudy from '../components/projects/ProjectCaseStudy.jsx'
 import { getProjectBySlug } from '../data/projects.js'
@@ -7,6 +7,7 @@ import {
   DEFAULT_OG_IMAGE,
   PAGE_SEO,
   SITE_URL,
+  getProjectJsonLd,
   getProjectSeoDescription,
   getProjectSeoTitle,
 } from '../utils/seo.js'
@@ -16,19 +17,24 @@ function ProjectDetails() {
   const project = getProjectBySlug(slug)
   const projectPath = `/projects/${slug}`
 
-  usePageSeo(
-    project
-      ? {
-          title: getProjectSeoTitle(project),
-          description: getProjectSeoDescription(project),
-          path: projectPath,
-          ogImage: project.image ? `${SITE_URL}${project.image}` : DEFAULT_OG_IMAGE,
-        }
-      : {
-          ...PAGE_SEO.projectNotFound,
-          path: projectPath,
-        },
+  const pageSeo = useMemo(
+    () =>
+      project
+        ? {
+            title: getProjectSeoTitle(project),
+            description: getProjectSeoDescription(project),
+            path: projectPath,
+            ogImage: project.image ? `${SITE_URL}${project.image}` : DEFAULT_OG_IMAGE,
+            jsonLd: getProjectJsonLd(project),
+          }
+        : {
+            ...PAGE_SEO.projectNotFound,
+            path: projectPath,
+          },
+    [project, projectPath],
   )
+
+  usePageSeo(pageSeo)
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' })

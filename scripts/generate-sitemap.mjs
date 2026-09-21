@@ -1,11 +1,7 @@
 import { writeFileSync } from 'node:fs'
-import { projects } from '../src/data/projects.js'
+import { getIndexablePaths, SITE_URL } from '../src/utils/seo.js'
 
-const SITE_URL = 'https://muzaffar.vercel.app'
-
-const staticPaths = ['/', '/projects', '/resume', '/contact']
-const projectPaths = projects.map((project) => `/projects/${project.slug}`)
-const paths = [...staticPaths, ...projectPaths]
+const paths = getIndexablePaths()
 
 const urls = paths
   .map((path) => {

@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Do not block JS/CSS bundles under /assets/ — required for rendering.
+# Verification file: /google1f18457f610a4247.html
+
 Sitemap: https://muzaffar.vercel.app/sitemap.xml

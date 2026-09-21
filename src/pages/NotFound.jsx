@@ -1,9 +1,11 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { usePageSeo } from '../hooks/usePageSeo.js'
 import { PAGE_SEO } from '../utils/seo.js'
 
 function NotFound() {
-  usePageSeo(PAGE_SEO.notFound)
+  const { pathname } = useLocation()
+
+  usePageSeo({ ...PAGE_SEO.notFound, path: pathname })
 
   return (
     <div className="page-placeholder container">
