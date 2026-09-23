@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { Reveal } from '../components/motion/Reveal.jsx'
 import ExternalLink from '../components/projects/ExternalLink.jsx'
 import ResumePdfActions from '../components/resume/ResumePdfActions.jsx'
 import Button from '../components/ui/Button.jsx'
@@ -18,7 +19,7 @@ function Resume() {
 
   return (
     <article className="resume-page">
-      <header className="resume-hero">
+      <Reveal as="header" className="resume-hero">
         <div className="container resume-hero__inner">
           <p className="label">Resume</p>
           <h1>{resume.name}</h1>
@@ -41,7 +42,7 @@ function Resume() {
           </ul>
           <ResumePdfActions />
         </div>
-      </header>
+      </Reveal>
 
       <section className="resume-section" aria-labelledby="resume-summary-heading">
         <div className="container">

@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import ContactForm from '../components/contact/ContactForm.jsx'
+import { Reveal } from '../components/motion/Reveal.jsx'
 import ExternalLink from '../components/projects/ExternalLink.jsx'
 import { contactInfo, contactPage } from '../data/contact.js'
 import { usePageSeo } from '../hooks/usePageSeo.js'
@@ -14,13 +15,13 @@ function Contact() {
 
   return (
     <article className="contact-page">
-      <header className="contact-hero">
+      <Reveal as="header" className="contact-hero">
         <div className="container contact-hero__inner">
           <p className="label">{contactPage.eyebrow}</p>
           <h1>{contactPage.title}</h1>
           <p className="contact-hero__lede">{contactPage.introduction}</p>
         </div>
-      </header>
+      </Reveal>
 
       <div className="container contact-page__body">
         <div className="contact-page__grid">

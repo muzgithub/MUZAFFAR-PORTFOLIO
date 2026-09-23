@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import CaseStudyProgress from './CaseStudyProgress.jsx'
 import Chip from '../ui/Chip.jsx'
 import ExternalLink from './ExternalLink.jsx'
 import ProjectPager from './ProjectPager.jsx'
@@ -53,10 +54,11 @@ function ProjectCaseStudy({ project }) {
 
   return (
     <article className="case-study">
+      <CaseStudyProgress />
       <div className="container">
         <nav className="case-study__crumb" aria-label="Breadcrumb">
           <Link className="case-study__back" to="/projects">
-            ← Back to Projects
+            ← Back to all projects
           </Link>
         </nav>
 

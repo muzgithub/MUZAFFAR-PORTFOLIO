@@ -9,13 +9,12 @@ export const profile = {
   github: 'https://github.com/muzgithub',
   resumePath: '/resume',
   navigation: [
-    { to: '/', label: 'Home', end: true },
-    { to: '/#about', label: 'About', hash: '#about' },
-    { to: '/#skills', label: 'Skills', hash: '#skills' },
+    { to: '/#projects', label: 'Work', hash: '#projects' },
     { to: '/#experience', label: 'Experience', hash: '#experience' },
-    { to: '/#projects', label: 'Projects', hash: '#projects' },
-    { to: '/resume', label: 'Resume' },
-    { to: '/contact', label: 'Contact' },
+    { to: '/#stack', label: 'Stack', hash: '#stack' },
+    { to: '/#approach', label: 'Process', hash: '#approach' },
+    { to: '/#about', label: 'About', hash: '#about' },
+    { to: '/#contact', label: 'Contact', hash: '#contact' },
   ],
   hero: {
     primary: ['WordPress', 'PHP', 'WooCommerce', 'JavaScript'],

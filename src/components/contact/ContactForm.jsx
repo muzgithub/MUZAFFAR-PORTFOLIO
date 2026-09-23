@@ -1,4 +1,5 @@
 import { useId, useState } from 'react'
+import MagneticButton from '../motion/MagneticButton.jsx'
 import Button from '../ui/Button.jsx'
 import { buildContactMailto, contactPage } from '../../data/contact.js'
 
@@ -12,7 +13,29 @@ const initialValues = {
   company: '',
 }
 
-function ContactForm() {
+const HOME_FIELDS = [
+  { id: 'name', num: '01', label: 'Name', type: 'text', autoComplete: 'name', placeholder: 'Your name' },
+  {
+    id: 'email',
+    num: '02',
+    label: 'Email',
+    type: 'email',
+    autoComplete: 'email',
+    inputMode: 'email',
+    placeholder: 'your@email.com',
+  },
+  {
+    id: 'message',
+    num: '03',
+    label: 'Message',
+    type: 'textarea',
+    autoComplete: 'off',
+    placeholder: 'Tell me about the project…',
+  },
+]
+
+function ContactForm({ variant = 'page' }) {
+  const isHome = variant === 'home'
   const formId = useId()
   const [values, setValues] = useState(initialValues)
   const [errors, setErrors] = useState({})
@@ -31,7 +54,7 @@ function ContactForm() {
       nextErrors.email = 'Enter a valid email address.'
     }
 
-    if (!nextValues.subject.trim()) {
+    if (!isHome && !nextValues.subject.trim()) {
       nextErrors.subject = 'Enter a subject.'
     }
 
@@ -82,7 +105,9 @@ function ContactForm() {
     const mailto = buildContactMailto({
       name: values.name.trim(),
       email: values.email.trim(),
-      subject: values.subject.trim(),
+      subject: isHome
+        ? `Portfolio contact from ${values.name.trim()}`
+        : values.subject.trim(),
       message: values.message.trim(),
     })
 
@@ -94,8 +119,109 @@ function ContactForm() {
 
   const statusId = `${formId}-status`
 
+  if (isHome) {
+    return (
+      <form
+        className="contact-form contact-form--home contact-form--editorial"
+        onSubmit={handleSubmit}
+        noValidate
+        aria-describedby={status ? statusId : undefined}
+      >
+        <div className="field contact-form__honeypot" aria-hidden="true">
+          <label className="field__label" htmlFor={`${formId}-company`}>
+            Company
+          </label>
+          <input
+            className="field__control"
+            type="text"
+            id={`${formId}-company`}
+            name="company"
+            value={values.company}
+            onChange={handleChange}
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </div>
+
+        {HOME_FIELDS.map((field) => {
+          const errorId = `${formId}-${field.id}-error`
+          const hintId = field.id === 'message' ? `${formId}-message-hint` : undefined
+          const describedBy = [errors[field.id] ? errorId : null, hintId].filter(Boolean).join(' ') || undefined
+
+          return (
+            <div key={field.id} className={`contact-field contact-field--editorial${errors[field.id] ? ' is-invalid' : ''}`}>
+              <div className="contact-field__head">
+                <span className="contact-field__num" aria-hidden="true">
+                  {field.num}
+                </span>
+                <label className="contact-field__label" htmlFor={`${formId}-${field.id}`}>
+                  {field.label}
+                </label>
+              </div>
+              {field.type === 'textarea' ? (
+                <textarea
+                  className="contact-field__control"
+                  id={`${formId}-${field.id}`}
+                  name={field.id}
+                  value={values[field.id]}
+                  onChange={handleChange}
+                  required
+                  rows={6}
+                  placeholder={field.placeholder}
+                  aria-invalid={errors[field.id] ? 'true' : undefined}
+                  aria-describedby={describedBy}
+                />
+              ) : (
+                <input
+                  className="contact-field__control"
+                  type={field.type}
+                  id={`${formId}-${field.id}`}
+                  name={field.id}
+                  value={values[field.id]}
+                  onChange={handleChange}
+                  required
+                  autoComplete={field.autoComplete}
+                  inputMode={field.inputMode}
+                  placeholder={field.placeholder}
+                  aria-invalid={errors[field.id] ? 'true' : undefined}
+                  aria-describedby={describedBy}
+                />
+              )}
+              <span className="contact-field__rule" aria-hidden="true" />
+              {field.id === 'message' ? (
+                <p className="contact-field__hint" id={hintId}>
+                  At least {contactPage.messageMinLength} characters.
+                </p>
+              ) : null}
+              {errors[field.id] ? (
+                <p className="contact-field__error" id={errorId} role="alert">
+                  {errors[field.id]}
+                </p>
+              ) : null}
+            </div>
+          )
+        })}
+
+        <MagneticButton type="submit" variant="primary" className="contact-form__submit contact-form__submit--editorial">
+          Send message →
+        </MagneticButton>
+
+        {status === 'mailto' ? (
+          <p className="contact-form__status" id={statusId} role="status">
+            Your email client should open with the message prepared. Please review and send it from there.
+          </p>
+        ) : null}
+      </form>
+    )
+  }
+
   return (
-    <form className="contact-form" onSubmit={handleSubmit} noValidate aria-describedby={status ? statusId : undefined}>
+    <form
+      className="contact-form"
+      onSubmit={handleSubmit}
+      noValidate
+      aria-describedby={status ? statusId : undefined}
+    >
       <p className="contact-form__note">{contactPage.formNote}</p>
 
       <div className="field contact-form__honeypot" aria-hidden="true">

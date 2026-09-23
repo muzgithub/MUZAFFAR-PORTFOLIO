@@ -47,15 +47,11 @@ export const projectFilters = [
   'WordPress',
   'WooCommerce',
   'PHP',
-  'JavaScript',
+  'Core PHP',
   'Laravel',
   'React',
-  'MERN',
   'Drupal',
-  'Core PHP',
-  'AI',
-  'E-commerce',
-  'Web Applications',
+  'MERN',
 ]
 
 export const projects = [

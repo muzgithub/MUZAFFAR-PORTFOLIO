@@ -30,7 +30,21 @@ export function projectMatchesCategory(project, category) {
     return true
   }
 
-  return [project.category, ...(project.categories ?? [])].includes(category)
+  const labels = [project.category, ...(project.categories ?? [])]
+
+  if (category === 'PHP') {
+    return labels.some((label) => label === 'PHP' || label === 'Core PHP')
+  }
+
+  if (category === 'React') {
+    return labels.includes('React') || (project.technologies ?? []).includes('ReactJS')
+  }
+
+  if (category === 'WooCommerce') {
+    return (project.technologies ?? []).includes('WooCommerce')
+  }
+
+  return labels.includes(category)
 }
 
 export function filterProjects(projects, { query = '', category = 'All' } = {}) {
