@@ -1,9 +1,11 @@
 export const HOME_SCROLL_SECTIONS = [
-  { key: 'home', selector: 'section.hero' },
+  { key: 'home', selector: '#home' },
   { key: 'projects', selector: '#projects' },
-  { key: 'about', selector: '#about' },
-  { key: 'skills', selector: '#skills' },
   { key: 'experience', selector: '#experience' },
+  { key: 'stack', selector: '#stack' },
+  { key: 'approach', selector: '#approach' },
+  { key: 'about', selector: '#about' },
+  { key: 'contact', selector: '#contact' },
 ]
 
 function parseLength(value, rootFontSize) {

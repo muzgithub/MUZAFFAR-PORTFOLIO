@@ -1,5 +1,7 @@
+import { motion } from 'motion/react'
 import { useEffect, useMemo } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion.js'
 import ProjectCaseStudy from '../components/projects/ProjectCaseStudy.jsx'
 import { getProjectBySlug } from '../data/projects.js'
 import { usePageSeo } from '../hooks/usePageSeo.js'
@@ -13,6 +15,7 @@ import {
 } from '../utils/seo.js'
 
 function ProjectDetails() {
+  const reduced = usePrefersReducedMotion()
   const { slug } = useParams()
   const project = getProjectBySlug(slug)
   const projectPath = `/projects/${slug}`
@@ -57,7 +60,16 @@ function ProjectDetails() {
     )
   }
 
-  return <ProjectCaseStudy project={project} />
+  return (
+    <motion.div
+      key={project.slug}
+      initial={reduced ? false : { opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+    >
+      <ProjectCaseStudy project={project} />
+    </motion.div>
+  )
 }
 
 export default ProjectDetails

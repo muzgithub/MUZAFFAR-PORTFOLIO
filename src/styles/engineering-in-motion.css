@@ -1,0 +1,479 @@
+/* Engineering in Motion — v7 layer on product-engineering */
+
+/* —— Hero motion —— */
+
+.pe-hero--motion {
+  position: relative;
+  overflow: clip;
+  isolation: isolate;
+}
+
+.pe-hero__layers {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.pe-hero__ambient {
+  position: absolute;
+  inset: -15%;
+  background: radial-gradient(
+    ellipse 55% 45% at 50% 42%,
+    color-mix(in srgb, var(--color-accent) 14%, transparent),
+    transparent 70%
+  );
+  opacity: 0.9;
+}
+
+[data-theme='dark'] .pe-hero__ambient {
+  opacity: 1;
+  background: radial-gradient(
+    ellipse 55% 45% at 50% 42%,
+    color-mix(in srgb, var(--color-accent) 22%, transparent),
+    transparent 72%
+  );
+}
+
+.pe-hero__availability {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-4);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-caption);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pe-hero__availability-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 22%, transparent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pe-hero__availability-dot {
+    animation: pe-availability-pulse 2.8s ease-in-out infinite;
+  }
+}
+
+@keyframes pe-availability-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.pe-hero__grid {
+  position: absolute;
+  inset: -8%;
+  background-image:
+    linear-gradient(var(--pe-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pe-grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 72%);
+}
+
+.pe-hero__spotlight {
+  position: absolute;
+  width: min(42vw, 28rem);
+  height: min(42vw, 28rem);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--pe-spotlight) 0%, transparent 68%);
+  transform: translate(-50%, -50%);
+  filter: blur(2px);
+}
+
+.pe-hero--motion .pe-hero__layout {
+  position: relative;
+  z-index: 1;
+}
+
+.pe-hero__visual {
+  position: relative;
+}
+
+.pe-hero__portrait-wrap {
+  position: relative;
+  width: min(100%, 21rem);
+  margin-inline: auto;
+}
+
+.pe-hero--motion .pe-hero__portrait-frame {
+  transform-origin: center;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.pe-hero__meta-ring {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2) var(--space-3);
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pe-hero__meta-ring li {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-bg-elevated) 88%, transparent);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-meta);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+@media (min-width: 1024px) {
+  .pe-hero__portrait-wrap {
+    margin-inline: 0 0 auto;
+  }
+}
+
+/* —— Marquee (semantic list) —— */
+
+.pe-marquee__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.pe-marquee__track {
+  display: flex;
+  width: max-content;
+  gap: var(--space-10);
+  margin: 0;
+  padding: var(--space-3) var(--space-5);
+  list-style: none;
+}
+
+.pe-marquee__item {
+  flex-shrink: 0;
+}
+
+.pe-marquee__static-list,
+.pe-marquee--static .pe-marquee__static-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3) var(--space-8);
+  margin: 0;
+  padding: var(--space-3) var(--space-5);
+  list-style: none;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-meta);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* —— Introduction —— */
+
+.pe-intro__grid {
+  display: grid;
+  gap: var(--space-10);
+  align-items: start;
+}
+
+.pe-intro__statement {
+  margin: 0;
+  max-width: 14ch;
+  font-size: clamp(1.85rem, 1.35rem + 2.2vw, 3.1rem);
+  font-weight: var(--weight-display);
+  letter-spacing: var(--letter-heading);
+  line-height: var(--line-height-tight);
+}
+
+.pe-intro__principles {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pe-intro__principles li {
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-elevated);
+}
+
+.pe-intro__principles strong {
+  display: block;
+  margin: var(--space-2) 0;
+  font-size: var(--font-size-h3);
+}
+
+@media (min-width: 900px) {
+  .pe-intro__grid {
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: var(--space-12);
+  }
+
+  .pe-intro__principles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* —— Impact strip —— */
+
+.pe-impact {
+  padding-block: var(--space-6);
+  border-block: 1px solid var(--color-border);
+  background: var(--color-bg-elevated);
+}
+
+.pe-impact__strip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.pe-impact__cell {
+  text-align: center;
+}
+
+.pe-impact__value {
+  margin: 0;
+  color: var(--color-accent);
+  font-size: clamp(1.75rem, 1.35rem + 1.2vw, 2.35rem);
+  font-weight: var(--weight-display);
+  letter-spacing: -0.02em;
+}
+
+.pe-impact__label {
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-meta);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .pe-impact__strip {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* —— Project showcase 30 / 70 —— */
+
+@media (min-width: 1024px) {
+  .pe-showcase__grid {
+    grid-template-columns: minmax(0, 30%) minmax(0, 70%);
+    gap: var(--space-10);
+  }
+}
+
+.pe-showcase__nav button {
+  transition:
+    color var(--duration-base) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.pe-showcase__nav button:hover,
+.pe-showcase__nav button:focus-visible {
+  transform: translateX(3px);
+}
+
+.pe-showcase__panel {
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .pe-showcase__panel:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--color-accent) 28%, var(--color-border));
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.pe-showcase__visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* —— Experience year column —— */
+
+.pe-experience__years p:last-child {
+  margin-bottom: 0;
+}
+
+/* —— Stack row hover —— */
+
+.pe-capabilities__row {
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.pe-capabilities__row button {
+  transition: padding var(--duration-base) var(--ease-out);
+}
+
+.pe-capabilities__row.is-active button {
+  padding-block: var(--space-6);
+}
+
+.pe-capabilities__row.is-muted:not(.is-active) {
+  opacity: 0.72;
+}
+
+/* —— Process (major) —— */
+
+.pe-process-major__grid {
+  display: grid;
+  gap: var(--space-10);
+}
+
+.pe-process-major__head h2 {
+  margin: 0;
+  max-width: 16ch;
+  font-size: var(--font-size-h2);
+}
+
+.pe-process-major__nav {
+  position: relative;
+}
+
+.pe-process-major__rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0.65rem;
+  width: 2px;
+  background: var(--color-border);
+}
+
+.pe-process-major__rail span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--color-accent);
+  transform-origin: top;
+}
+
+.pe-process-major__nav ol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0 0 0 var(--space-8);
+  list-style: none;
+}
+
+.pe-process-major__nav button {
+  display: block;
+  width: 100%;
+  padding: var(--space-3) 0;
+  border: none;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font: inherit;
+  font-size: var(--font-size-caption);
+  font-weight: var(--weight-semibold);
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--duration-base) var(--ease-out);
+}
+
+.pe-process-major__nav li.is-active button {
+  color: var(--color-text);
+}
+
+.pe-process-major__nav button span {
+  margin-right: var(--space-2);
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-meta);
+  font-weight: var(--weight-bold);
+}
+
+.pe-process-major__stage {
+  min-height: 10rem;
+  padding: var(--space-8);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-elevated);
+}
+
+.pe-process-major__num {
+  margin: 0 0 var(--space-2);
+  color: var(--color-accent);
+  font-size: var(--font-size-meta);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.12em;
+}
+
+.pe-process-major__stage h3 {
+  margin: 0 0 var(--space-3);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+  font-weight: var(--weight-display);
+  letter-spacing: var(--letter-heading);
+}
+
+.pe-process-major__text {
+  margin: 0;
+  max-width: 36ch;
+}
+
+@media (min-width: 900px) {
+  .pe-process-major__grid {
+    grid-template-columns: minmax(0, 0.38fr) minmax(0, 0.62fr);
+    grid-template-areas:
+      'head head'
+      'nav stage';
+    align-items: start;
+  }
+
+  .pe-process-major__head {
+    grid-area: head;
+  }
+
+  .pe-process-major__nav {
+    grid-area: nav;
+  }
+
+  .pe-process-major__stage {
+    grid-area: stage;
+  }
+}
+
+/* —— Contact focus + final CTA —— */
+
+.pe-contact__layout .contact-form input:focus-visible,
+.pe-contact__layout .contact-form textarea:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-color: var(--color-accent);
+}
+
+.pe-final-cta {
+  position: relative;
+  overflow: clip;
+}
+
+.pe-final-cta::before {
+  content: '';
+  position: absolute;
+  inset: 20% -20% -40%;
+  background: radial-gradient(ellipse 50% 40% at 50% 50%, var(--pe-spotlight), transparent 70%);
+  pointer-events: none;
+}
+
+.pe-final-cta .container {
+  position: relative;
+  z-index: 1;
+}

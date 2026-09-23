@@ -1,28 +1,33 @@
 import { Link } from 'react-router-dom'
 import ExternalLink from './ExternalLink.jsx'
-import ProjectImagePlaceholder from './ProjectImagePlaceholder.jsx'
+import ProjectPreviewArt from './ProjectPreviewArt.jsx'
+import ProjectVisualFrame from './ProjectVisualFrame.jsx'
 import Chip from '../ui/Chip.jsx'
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, index }) {
   const tags = (project.technologies ?? []).slice(0, 4)
+  const number = index ? String(index).padStart(2, '0') : null
 
   return (
     <article className="project-card">
+      {number ? <p className="project-card__number">{number}</p> : null}
       <Link
         className="project-card__media"
         to={`/projects/${project.slug}`}
         aria-label={`${project.title} details`}
       >
-        {project.image ? (
-          <img
-            src={project.image}
-            alt={`${project.title} website screenshot`}
-            loading="lazy"
-            decoding="async"
-          />
-        ) : (
-          <ProjectImagePlaceholder project={project} />
-        )}
+        <ProjectVisualFrame>
+          {project.image ? (
+            <img
+              src={project.image}
+              alt={`${project.title} website screenshot`}
+              loading="lazy"
+              decoding="async"
+            />
+          ) : (
+            <ProjectPreviewArt project={project} />
+          )}
+        </ProjectVisualFrame>
       </Link>
       <div className="project-card__body">
         <p className="label">{project.category}</p>
@@ -40,8 +45,8 @@ function ProjectCard({ project }) {
           </div>
         ) : null}
         <div className="cluster project-card__actions">
-          <Link className="btn btn--secondary" to={`/projects/${project.slug}`}>
-            Details
+          <Link className="btn btn--secondary project-card__case-link" to={`/projects/${project.slug}`}>
+            View project →
           </Link>
           {project.url ? (
             <ExternalLink className="btn btn--ghost" href={project.url}>

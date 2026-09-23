@@ -1,6 +1,7 @@
 import ProjectFilters from '../components/projects/ProjectFilters.jsx'
 import ProjectGrid from '../components/projects/ProjectGrid.jsx'
 import ProjectSearch from '../components/projects/ProjectSearch.jsx'
+import { Reveal } from '../components/motion/Reveal.jsx'
 import Button from '../components/ui/Button.jsx'
 import { projects } from '../data/projects.js'
 import { useProjectFilters } from '../hooks/useProjectFilters.js'
@@ -16,14 +17,14 @@ function Projects() {
   return (
     <div className="projects-page">
       <div className="container">
-        <header className="projects-page__header">
-          <p className="label">Directory</p>
-          <h1>Projects</h1>
-          <p className="text-secondary">
-            {results.length} of {projects.length} projects
-            {isFiltered ? ' matching the current search and filter' : ''}
+        <Reveal as="header" className="projects-page__header">
+          <p className="label">Portfolio</p>
+          <h1>All work</h1>
+          <p className="text-secondary projects-page__intro">
+            {projects.length} projects — production websites, applications and digital solutions.
+            {isFiltered ? ` Showing ${results.length} of ${projects.length}.` : ''}
           </p>
-        </header>
+        </Reveal>
 
         <div className="projects-page__controls">
           <ProjectSearch value={query} onChange={setQuery} />

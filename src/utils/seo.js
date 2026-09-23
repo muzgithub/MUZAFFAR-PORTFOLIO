@@ -8,9 +8,15 @@ export const SITE_NAME = profile.name
 export const DEFAULT_TITLE = `${profile.name} — ${profile.title}`
 
 export const DEFAULT_DESCRIPTION =
-  'Software Engineer | Full Stack Developer with 6+ years of experience in WordPress, WooCommerce, PHP, Laravel, ReactJS, and modern web applications.'
+  'Software Engineer with 6+ years of experience building WordPress, WooCommerce, PHP, Laravel and React web products.'
 
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`
+
+export const DEFAULT_OG_IMAGE_ALT = DEFAULT_TITLE
+
+export const DEFAULT_OG_IMAGE_WIDTH = 1200
+
+export const DEFAULT_OG_IMAGE_HEIGHT = 630
 
 export const PROFILE_IMAGE_URL = `${SITE_URL}/My%20Pic/My_Pic.png`
 
@@ -38,6 +44,11 @@ function upsertMeta({ name, property, content }) {
 
   element.setAttribute(MANAGED_SELECTOR, 'true')
   element.setAttribute('content', content)
+}
+
+function removeMeta({ name, property }) {
+  const selector = property ? `meta[property="${property}"]` : `meta[name="${name}"]`
+  document.head.querySelector(selector)?.remove()
 }
 
 function upsertLink(rel, href) {
@@ -242,6 +253,20 @@ export function applyPageSeo({
   upsertMeta({ property: 'og:description', content: description })
   upsertMeta({ property: 'og:url', content: canonical })
   upsertMeta({ property: 'og:image', content: ogImage })
+
+  if (ogImage === DEFAULT_OG_IMAGE) {
+    upsertMeta({ property: 'og:image:width', content: String(DEFAULT_OG_IMAGE_WIDTH) })
+    upsertMeta({ property: 'og:image:height', content: String(DEFAULT_OG_IMAGE_HEIGHT) })
+    upsertMeta({ property: 'og:image:alt', content: DEFAULT_OG_IMAGE_ALT })
+    upsertMeta({ name: 'twitter:image:alt', content: DEFAULT_OG_IMAGE_ALT })
+  } else {
+    removeMeta({ property: 'og:image:width' })
+    removeMeta({ property: 'og:image:height' })
+    removeMeta({ property: 'og:image:alt' })
+    removeMeta({ name: 'twitter:image:alt' })
+    upsertMeta({ property: 'og:image:alt', content: title })
+    upsertMeta({ name: 'twitter:image:alt', content: title })
+  }
 
   upsertMeta({ name: 'twitter:card', content: 'summary_large_image' })
   upsertMeta({ name: 'twitter:title', content: title })
